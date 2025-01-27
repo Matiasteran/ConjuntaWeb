@@ -1,0 +1,200 @@
+
+Avoices
+
+{
+  "id_avoice": "P0024",             
+  "id_client": 5,                
+  "id_sale": "S0002",              
+  "issue_date": "2025-01-24",      
+  "total_amount": "20.50",        
+  "payment_status": "Pendiente",   
+  "notification_sent": 0           
+}
+
+http://localhost:3000/avoices/P0024
+
+
+
+Category
+
+{
+  "id_category": 0,
+  "creation_date": "2025-01-24",
+  "name": "Dulces",
+  "description": "Esta es una descripción de ejemplo."
+}
+
+http://localhost:3000/categories/1
+
+
+
+Comentary
+
+{
+  "id": 0,
+  "product_id": "NL8317",
+  "user_id": 1,
+  "rating": 4,
+  "comment": "Este producto es excelente, me encantó.",
+  "created_at": "2023-01-24 12:34:56"
+}
+
+http://localhost:3000/comentaries/5
+
+
+
+Details_sales
+
+{
+  "id_sale": "P0021",
+  "id_product": "NL8317",
+  "id_avoice": "P0022",
+  "amount": 1,
+  "unit_price": "3.00",
+  "subtotal": "3.00"
+}
+
+  http://localhost:3000/details_sales/P0021/NL8317
+
+
+
+Inventory
+
+{
+  "id_inventory": 0,
+  "id_user": 1,
+  "date": "2025-02-24 12:34:56",
+  "id_product": "NL1112"
+}
+
+http://localhost:3000/inventory/1
+
+
+
+Payments
+
+{
+  "id_payment": 0,
+  "id_invoice": "P0001",
+  "amount": 150.75,
+  "payment_date": "2025-02-28 12:34:56",
+  "payment_method": "Credit Card"
+}
+
+http://localhost:3000/payments/1
+
+
+
+Products
+
+{
+  "id": "NL2604",
+  "name": "Girasol",
+  "description": "Un regalo perfecto para la familia",
+  "category": "chocolate",
+  "inventory": 3,
+  "weight": "3.00",
+  "weight_unit": "gr",
+  "price": "4.00",
+  "reservable": 0,
+  "images": [
+    "https://i.imgur.com/CxOdopK.jpeg"
+  ],
+  "status": "Activo"
+}
+
+http://localhost:3000/products/NL2604
+
+
+
+Role
+
+{
+  "id_role": 0,
+  "name_role": "Administrator",
+  "access": "Full access to all modules and features",
+  "description": "Role assigned to users who manage the system and have full control."
+}
+
+http://localhost:3000/roles/1
+
+
+
+Sales
+
+{
+  "id_sales": 0,
+  "id_client": 1,
+  "sale_date": "2025-01-24",
+  "total_amount": 2500.75
+}
+
+http://localhost:3000/sales/1
+
+
+
+Users
+
+{
+        "id": 0,
+        "first_name": "Matias",
+        "last_name": "Suarez",
+        "birth_date": "2003-04-26",
+        "email": "matiasuarez_4b@hotmail.com",
+        "username": "Maty26",
+        "password": "12345678",
+        "role": "Admin",
+        "created_at": "2025-01-24T01:20:39.000Z"
+}
+
+http://localhost:3000/users/25
+
+
+
+View catalog
+http://localhost:3000/products?category=Dulce
+
+
+
+Sum of sales
+http://localhost:3000/sales/2025/03
+
+
+
+Products sum
+http://localhost:3000/details_sales/total/P0020
+
+
+
+Classify comments
+http://localhost:3000/comentaries/rating/4
+
+
+
+Calculate age
+http://localhost:3000/users/age/25
+
+
+
+Classify user
+http://localhost:3000/users/role/admin
+
+
+
+Calculate IVA
+http://localhost:3000/sales/with-tax
+
+
+
+Export to PDF
+http://localhost:3000/export/users
+
+
+
+Classify state
+http://localhost:3000/avoices/status/Pendiente
+
+
+
+Classify inventory
+http://localhost:3000/inventory/user/2
