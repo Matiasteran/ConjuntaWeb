@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 
 // Conexión a MySQL proporcionada por Clever Cloud
-const connectionURI = 'mysql://uglbkixcek6wynq5:K51uMlLuFC2RLgSk0fY0@bfbfl0wgtltgn4vaqzjs-mysql.services.clever-cloud.com:3306/bfbfl0wgtltgn4vaqzjs';
+const connectionURI = 'mysql://utoyqieuqvce4tua:OqTJFQWHhe9FNxgfYdni@bshfoyw8lhufkszxhddq-mysql.services.clever-cloud.com:3306/bshfoyw8lhufkszxhddq';
 
 const connection = mysql.createPool({
   uri: connectionURI,
