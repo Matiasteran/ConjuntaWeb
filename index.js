@@ -16,7 +16,7 @@ app.get('/Pintureframe', (req, res) => {
   });
 });
 
-app.put('/Pintureframe/Put/:id', (req, res) => {
+app.put('/Pintureframe/Put/:serialNumber', (req, res) => {
   const { serialNumber } = req.params; 
   const { brand, model, material, dimensions, isNew, price } = req.body;
 
@@ -42,7 +42,7 @@ app.put('/Pintureframe/Put/:id', (req, res) => {
       if (results.affectedRows === 0) {
         return res.status(404).send('Marco no encontrado');
       }
-      res.json({ message: 'Marco actualizado exitosamente' });
+      res.json({ message: 'Actualizado exitosamente' });
     }
   );
 });
