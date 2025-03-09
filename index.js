@@ -1,50 +1,35 @@
 const express = require('express');
 const connection = require('./db');
 const app = express();
-const PORT = 3001;
+const PORT = 3018;
+
 app.use(express.json());
 
+app.get('/calculateGrade', (req, res) => {
+  const query = `
+    SELECT 
+      id,
+      first_name,
+      last_name,
+      subject,
+      grade1,
+      grade2,
+      ROUND((grade1 + grade2) / 2, 2) AS finalGrade
+    FROM Students
+  `;
 
-//Marcos Actualizar
-app.get('/Pintureframe', (req, res) => {
-  connection.query('SELECT * FROM `frames`', (err, results) => {
+  connection.query(query, (err, results) => {
     if (err) {
-      console.error('Error al realizar la consulta:', err.message);
-      return res.status(500).send('Error al obtener las facturas');
+      console.error('Error al calcular las notas finales:', err.message);
+      return res.status(500).send('Error al calcular las notas finales');
     }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron estudiantes' });
+    }
+
     res.json(results);
   });
-});
-
-app.put('/Pintureframe/Put/:serialNumber', (req, res) => {
-  const { serialNumber } = req.params; 
-  const { brand, model, material, dimensions, isNew, price } = req.body;
-
-  const query = `
-    UPDATE frames
-    SET brand = ?, 
-        model = ?, 
-        material = ?, 
-        dimensions = ?, 
-        isNew = ?, 
-        price = ?
-    WHERE serialNumber = ?`;
-
-  // Ejecutar la consulta
-  connection.query(
-    query, 
-    [brand, model, material, dimensions, isNew, price, serialNumber], 
-    (err, results) => {
-      if (err) {
-        console.error('Error al actualizar el marco:', err.message);
-        return res.status(500).send('Error al actualizar el marco');
-      }
-      if (results.affectedRows === 0) {
-        return res.status(404).send('Marco no encontrado');
-      }
-      res.json({ message: 'Actualizado exitosamente' });
-    }
-  );
 });
 
 app.listen(PORT, () => {
